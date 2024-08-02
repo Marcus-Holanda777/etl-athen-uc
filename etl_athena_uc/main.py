@@ -24,6 +24,8 @@ s3_staging_dir = os.getenv('s3_staging_dir', None)
 secret_id = os.getenv('secret_id', None)
 project_id = os.getenv('project_id', None)
 plan_base_coord = os.getenv('plan_base_coord', None)
+bucket_to = os.getenv('bucket_to', None)
+database_name = os.getenv('database_name', None)
 
 
 JSON_DICT = json.loads(
@@ -81,7 +83,7 @@ def download_file_drive(id_file, name_file):
 
 def upload_file(bucket_name, file, to_file, sub_path = None):
     config = SConnect()
-    cliente = config(project="engenharia-mvsh")
+    cliente = config(project=project_id)
 
     storage =  Storage(cliente=cliente)
     bucket = storage.get_bucket(bucket_name)
@@ -178,7 +180,7 @@ def finalize_base(origem, destino):
     Envia novo banco
     """
     transform_supervisor()
-    upload_file('datalake-mvsh-export', origem, destino)
+    upload_file(bucket_to, origem, destino)
     os.unlink(origem)
 
     print('data.duckdb SUCESSO !')
@@ -206,7 +208,7 @@ def main_export_table(
             stmt_query = etl_columns_select(
                 cliente.cursor,
                 catalog_name='awsdatacatalog',
-                database_name='modelled',
+                database_name=database_name,
                 table_name=stmt
             )
 
@@ -229,7 +231,7 @@ def export_tables(request):
 
     finalize_base('db.duckdb', 'data.duckdb')
 
-    diff = t_01 - perf_counter()
+    diff = perf_counter() - t_01
     retorno = f'Tempo total: {diff:.8f}'
     print(retorno)
 
