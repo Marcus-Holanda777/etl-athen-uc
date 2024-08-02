@@ -13,3 +13,5 @@ venv
 *.ps1
 *.bat
 *.yaml
+models.py
+/models.py
