@@ -1,0 +1,15 @@
+__pycache__
+/__pycache__
+job.txt
+/job.txt
+*.csv
+*.parquet
+*.duckdb
+*.db
+*.xlsx
+*$.xlsx
+venv
+/venv
+*.ps1
+*.bat
+*.yaml
