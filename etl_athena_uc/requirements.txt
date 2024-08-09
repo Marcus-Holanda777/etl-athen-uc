@@ -1,4 +1,4 @@
-athena-mvsh @ git+https://github.com/Marcus-Holanda777/athena-mvsh.git@ae2efc41c93c9ad5f462f7d829cab566c81a7c1c
+athena-mvsh @ git+https://github.com/Marcus-Holanda777/athena-mvsh.git@245b204a74bbc587655b368b6b3cfc3e78cf6887
 boto3==1.34.150
 botocore==1.34.150
 cachetools==5.4.0

@@ -231,7 +231,7 @@ def export_tables(request):
 
     finalize_base('db.duckdb', 'data.duckdb')
 
-    diff = perf_counter() - t_01
+    diff = t_01 - perf_counter()
     retorno = f'Tempo total: {diff:.8f}'
     print(retorno)
 
