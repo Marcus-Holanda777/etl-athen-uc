@@ -98,7 +98,7 @@ def to_parquet(table_name: str) -> str:
 
     with duckdb.connect('db.duckdb') as con:
         tbl = con.table(table_name)
-        tbl.write_parquet(file_to, row_group_size=100_000)  
+        tbl.write_parquet(file_to, row_group_size=100_000)
     
     return file_to
 
