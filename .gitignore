@@ -2,6 +2,8 @@ __pycache__
 /__pycache__
 job.txt
 /job.txt
+/job_ressarcimento.txt
+job_ressarcimento.txt
 *.csv
 *.parquet
 *.duckdb
