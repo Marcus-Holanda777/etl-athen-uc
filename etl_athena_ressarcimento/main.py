@@ -86,7 +86,7 @@ def etl_columns_select(
         return f"""
            select {cols} 
            from {database_name}.{table_name}
-           inner join {database_name}.cosmospdp_dbo_nota_cab using(id_recuperavel_nota_cab)
+           inner join {database_name}.cosmospdp_dbo_nota_cab using(id_nota_cab)
            {where}
         """
 
